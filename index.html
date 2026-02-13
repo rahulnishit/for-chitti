@@ -243,17 +243,19 @@
 
         function moveButton(id) {
             const btn = document.getElementById(id);
-            // Define a "Safe Zone" (Avoiding the very edges of the screen)
-            const padding = 100; // Keep it 100px away from the edges
-            const maxX = window.innerWidth - btn.offsetWidth - padding;
-            const maxY = window.innerHeight - btn.offsetHeight - padding;
-            // Generate random coordinates but start from the padding offset
-            const x = Math.floor(Math.random() * (maxX - padding)) + padding;
-            const y = Math.floor(Math.random() * (maxY - padding)) + padding;
+            const margin = 0.15; 
+            const minX = window.innerWidth * margin;
+            const maxX = window.innerWidth * (1 - margin) - btn.offsetWidth;
+            const minY = window.innerHeight * margin;
+            const maxY = window.innerHeight * (1 - margin) - btn.offsetHeight;
+            // Generate a random position within that large 70% center area
+            const x = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+            const y = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
             btn.style.position = 'fixed';
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
-            btn.style.transition = 'all 0.3s ease-out'; // Adds a smooth "glide" when it moves
+            // Smooth escape transition
+            btn.style.transition = 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
         }
 
         function growYes() {
