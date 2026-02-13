@@ -1,134 +1,502 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Favorite Person 💛</title>
-    <style>
-        :root {--primary-pink: #fff5f8;--accent-yellow: #ffde59;--deep-rose: #d63384;--soft-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);}
-        body {margin: 0;padding: 0;display: flex;justify-content: center;align-items: center;height: 100vh;background: radial-gradient(circle, #fff5f8 0%, #ffe0e9 100%);font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;overflow: hidden;text-align: center;}
-        .bg-heart {position: absolute;color: rgba(255, 222, 89, 0.4);user-select: none;z-index: -1;animation: floatUp 10s linear infinite;}
-        @keyframes floatUp {0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }}
-        .container {background: rgba(255, 255, 255, 0.9);backdrop-filter: blur(10px);padding: 2.5rem;border-radius: 40px;box-shadow: var(--soft-shadow);width: 90%;max-width: 420px;transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);border: 3px solid white;position: relative;z-index: 10;animation: mainFloat 5s ease-in-out infinite;}
-        h1 {color: var(--deep-rose);font-size: 1.6rem;line-height: 1.4;margin-bottom: 20px;font-weight: 800;}
-        .tagline {color: #666;font-size: 1rem;margin-top: 20px;font-weight: 500;line-height: 1.5;}
-        .gif {width: 200px;border-radius: 20px;margin-bottom: 20px;}
-        .final-photo {width: 280px !important;height: auto;border: 12px solid white;border-bottom: 40px solid white;border-radius: 4px;box-shadow: 0 10px 20px rgba(0,0,0,0.15);transform: rotate(-2deg);margin-bottom: 25px;transition: transform 0.3s ease;}
-        .final-photo:hover {transform: rotate(0deg) scale(1.05);}
-        .btn-container {display: flex;justify-content: center;align-items: center;gap: 15px;margin-top: 25px;min-height: 120px;}
-        button {padding: 14px 28px;font-size: 1.1rem;border: none;border-radius: 50px;cursor: pointer;font-weight: 700;box-shadow: 0 6px 20px rgba(255, 77, 109, 0.3);transition: all 0.3s ease;}
-        .yes-btn {background-color: #ff4d6d;color: white;z-index: 100;transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
-        .no-btn {background-color: #eee;color: #777;transition: all 0.2s ease;z-index: 50;}
-        .hidden {display: none;}
-        @keyframes mainFloat {0%, 100% { transform: translateY(0px); }50% { transform: translateY(-15px); }}
-    </style>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Favorite Person 💛</title>
+
+    <style>
+
+        :root {
+
+            --primary-pink: #fff5f8;
+
+            --accent-yellow: #ffde59;
+
+            --deep-rose: #d63384;
+
+            --soft-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
+
+        }
+
+
+
+        body {
+
+            margin: 0;
+
+            padding: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            background: radial-gradient(circle, #fff5f8 0%, #ffe0e9 100%);
+
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+            overflow: hidden;
+
+            text-align: center;
+
+        }
+
+
+
+        .bg-heart {
+
+            position: absolute;
+
+            color: rgba(255, 222, 89, 0.4);
+
+            user-select: none;
+
+            z-index: -1;
+
+            animation: floatUp 10s linear infinite;
+
+        }
+
+
+
+        @keyframes floatUp {
+
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+
+        }
+
+
+
+        .container {
+
+            background: rgba(255, 255, 255, 0.9);
+
+            backdrop-filter: blur(10px);
+
+            padding: 2.5rem;
+
+            border-radius: 40px;
+
+            box-shadow: var(--soft-shadow);
+
+            width: 90%;
+
+            max-width: 420px;
+
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            border: 3px solid white;
+
+            position: relative;
+
+            z-index: 10;
+
+        }
+
+
+
+        h1 { 
+
+            color: var(--deep-rose); 
+
+            font-size: 1.6rem; 
+
+            line-height: 1.4; 
+
+            margin-bottom: 20px;
+
+            font-weight: 800;
+
+        }
+
+
+
+        .tagline { 
+
+            color: #666; 
+
+            font-size: 1rem; 
+
+            margin-top: 20px; 
+
+            font-weight: 500;
+
+            line-height: 1.5;
+
+        }
+
+
+
+        .gif { width: 200px; border-radius: 20px; margin-bottom: 20px; }
+
+
+
+        .final-photo {
+
+            width: 280px !important;
+
+            height: auto;
+
+            border: 12px solid white;
+
+            border-bottom: 40px solid white;
+
+            border-radius: 4px;
+
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+            transform: rotate(-2deg);
+
+            margin-bottom: 25px;
+
+            transition: transform 0.3s ease;
+
+        }
+
+        .final-photo:hover { transform: rotate(0deg) scale(1.05); }
+
+
+
+        .btn-container {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 25px;
+
+            min-height: 120px;
+
+        }
+
+
+
+        button {
+
+            padding: 14px 28px;
+
+            font-size: 1.1rem;
+
+            border: none;
+
+            border-radius: 50px;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.3);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .yes-btn { 
+
+            background-color: #ff4d6d; 
+
+            color: white; 
+
+            z-index: 100;
+
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        }
+
+
+
+        .no-btn { 
+
+            background-color: #eee; 
+
+            color: #777; 
+
+            transition: all 0.2s ease;
+
+            z-index: 50;
+
+        }
+
+
+
+        .hidden { display: none; }
+
+
+
+        @keyframes mainFloat {
+
+            0%, 100% { transform: translateY(0px); }
+
+            50% { transform: translateY(-15px); }
+
+        }
+
+        .container { animation: mainFloat 5s ease-in-out infinite; }
+
+    </style>
+
 </head>
+
 <body>
-    <script>
-        for (let i = 0; i < 15; i++) {
-            let heart = document.createElement('div');
-            heart.className = 'bg-heart';
-            heart.innerHTML = '💛';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDelay = Math.random() * 10 + 's';
-            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-            document.body.appendChild(heart);
-        }
-    </script>
-    <div id="step1" class="container">
-        <img src="https://media.tenor.com/7S8YpS3v708AAAAi/mochi-mochi-peach-cat-cat.gif" class="gif">
-        <h1>Hello Chitti... Are you still mad at me? 🥺</h1>
-        <div class="btn-container">
-            <button class="yes-btn" onclick="nextStep(2)">No, not anymore ❤️</button>
-            <button id="noBtn1" class="no-btn" onmouseover="moveButton('noBtn1')">Yes! 😤</button>
-        </div>
-    </div>
-    <div id="step2" class="container hidden">
-        <img src="https://media.tenor.com/978f8vEof_oAAAAi/mochi-mochi-peach-cat-cat.gif" class="gif">
-        <h1>I've been thinking about this for a while... 💭</h1>
-        <button class="yes-btn" onclick="nextStep(3)">Tell me!! What is it? ✨</button>
-    </div>
-    <div id="step3" class="container hidden">
-        <img src="https://media.tenor.com/XskS99Y6L6wAAAAi/peach-goma.gif" class="gif">
-        <h1>First of all... I am very very Sorry for all my mistakes.. 😭🥀</h1>
-        <button class="yes-btn" onclick="nextStep(4)">That's ok! Chill! 🤜🤛</button>
-    </div>
-    <div id="step4" class="container hidden">
-        <img src="https://media.tenor.com/Y36R_Xp5t64AAAAi/mochi-mochi-peach-cat-cat.gif" class="gif">
-        <h1>Will you forgive me pleaseeeeeeeeeee? 🥺💛</h1>
-        <div class="btn-container">
-            <button class="yes-btn" onclick="nextStep(5)">Ok baba! ❤️</button>
-            <button id="noBtn2" class="no-btn" onmouseover="moveButton('noBtn2')">Get Lost!!! 😡</button>
-        </div>
-    </div>
-    <div id="step5" class="container hidden">
-        <img src="https://media.tenor.com/9v8SIsj8XmIAAAAi/mochi-peach-cat-peach-cat.gif" class="gif">
-        <h1>Now I wanted to ask you one more thing... 👉👈</h1>
-        <button class="yes-btn" onclick="nextStep(6)">Yes! Tell me!! 💛</button>
-    </div>
-    <div id="step6" class="container hidden">
-        <img src="https://media.tenor.com/bt_mS-5I9pkAAAAi/kiss-cat.gif" class="gif">
-        <h1>Will you be my Valentine? 💛🌼</h1>
-        <div class="btn-container">
-            <button id="finalYes" class="yes-btn" onclick="celebrate()">Yes Nishu! 🥰</button>
-            <button id="noBtn3" class="no-btn" onmouseover="moveButton('noBtn3', true)">Go to Hell! 💀</button>
-        </div>
-    </div>
-    <div id="stepFinal" class="container hidden">
-        <img src="my-love.JPG" class="final-photo" alt="Our Memory" onerror="this.src='https://media.tenor.com/s6n5Yq2P-mIAAAAi/love-cat.gif'">
-        <h1 style="font-size: 1.8rem; margin-top: 10px;">Stay as my पसंदीदा Aurat forever ♾️💛</h1>
-        <p class="tagline">Manam kala kaalam ila chilaka gorinka la kalisi undaam.. Please ye Thalli! ✨</p>
-    </div>
-    <script>
-        let yesSize = 1;
-        function nextStep(step) {
-            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
-            document.getElementById('step' + step).classList.remove('hidden');
-        }
-        function moveButton(id, restrictCenter = false) {
-            const btn = document.getElementById(id);
-            let x, y;
-            if (restrictCenter) {
-                const padX = window.innerWidth * 0.2;
-                const padY = window.innerHeight * 0.2;
-                x = padX + Math.random() * (window.innerWidth - btn.offsetWidth - (padX * 2));
-                y = padY + Math.random() * (window.innerHeight - btn.offsetHeight - (padY * 2));
-            } else {
-                const maxX = window.innerWidth - btn.offsetWidth - 20;
-                const maxY = window.innerHeight - btn.offsetHeight - 20;
-                x = Math.max(10, Math.random() * maxX);
-                y = Math.max(10, Math.random() * maxY);
-            }
-            btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-            if (id === 'noBtn3') growYes();
-        }
-        function growYes() {
-            yesSize += 0.45;
-            const yesBtn = document.getElementById('finalYes');
-            yesBtn.style.transform = `scale(${yesSize})`;
-        }
-        function celebrate() {
-            nextStep('Final');
-            for(let i=0; i<70; i++) { createConfetti(); }
-        }
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.innerText = Math.random() > 0.5 ? "💛" : "🌼";
-            confetti.style.position = 'fixed';
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.top = '-20px';
-            confetti.style.fontSize = Math.random() * 25 + 15 + 'px';
-            confetti.style.zIndex = 1000;
-            confetti.style.transition = `transform 3s linear, top 3s linear`;
-            document.body.appendChild(confetti);
-            setTimeout(() => {
-                confetti.style.top = '110vh';
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-            }, 10);
-            setTimeout(() => { confetti.remove(); }, 3000);
-        }
-    </script>
+
+
+
+    <script>
+
+        for (let i = 0; i < 15; i++) {
+
+            let heart = document.createElement('div');
+
+            heart.className = 'bg-heart';
+
+            heart.innerHTML = '💛';
+
+            heart.style.left = Math.random() * 100 + 'vw';
+
+            heart.style.animationDelay = Math.random() * 10 + 's';
+
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+
+            document.body.appendChild(heart);
+
+        }
+
+    </script>
+
+
+
+    <div id="step1" class="container">
+
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" class="gif">
+
+        <h1>Hello Chitti... Are you still mad at me? 🥺</h1>
+
+        <div class="btn-container">
+
+            <button class="yes-btn" onclick="nextStep(2)">No, not anymore ❤️</button>
+
+            <button id="noBtn1" class="no-btn" onmouseover="moveButton('noBtn1')">Yes! 😤</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="step2" class="container hidden">
+
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWpveXg0NWRyaGx5cnhqZmthNXJzdGE1OHNxM25yM3B0aGxrMndmNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uUnPYB37kLHvFnH4bi/giphy.gif" class="gif">
+
+        <h1>I've been thinking about this for a while... 💭</h1>
+
+        <button class="yes-btn" onclick="nextStep(3)">Tell me!! What is it? ✨</button>
+
+    </div>
+
+
+
+    <div id="step3" class="container hidden">
+
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDY4bmdwdzYwNmI1OWowcXJuYXBtNnU0MHdmYWh4b2FxM3JzZmlzeSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OBNZCbTy1s8u8i7Wre/giphy.gif" class="gif">
+
+        <h1>First of all... I am very very Sorry for all my mistakes.. 😭🥀</h1>
+
+        <button class="yes-btn" onclick="nextStep(4)">That's ok! Chill! 🤜🤛</button>
+
+    </div>
+
+
+
+    <div id="step4" class="container hidden">
+
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3FuN3YzeGMzMmszcnZtdnJuZm5tcHRhdW9tdXlmYmh2YmVvbzlkYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YZOsKxJfmvzG0/giphy.gif" class="gif">
+
+        <h1>Will you forgive me pleaseeeeeeeeeee? 🥺💛</h1>
+
+        <div class="btn-container">
+
+            <button class="yes-btn" onclick="nextStep(5)">Ok baba! ❤️</button>
+
+            <button id="noBtn2" class="no-btn" onmouseover="moveButton('noBtn2')">Get Lost!!! 😡</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="step5" class="container hidden">
+
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExczM4aWt5cWloNG55NzQxNWRxdmF3Zm4wZm9pYnEzOXB2M3RicnNpZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/71PLYtZUiPRg4/giphy.gif" class="gif">
+
+        <h1>Now I wanted to ask you one more thing... 👉👈</h1>
+
+        <button class="yes-btn" onclick="nextStep(6)">Yes! Tell me!! 💛</button>
+
+    </div>
+
+
+
+    <div id="step6" class="container hidden">
+
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif" class="gif">
+
+        <h1>Will you be my Valentine? 💛🌼</h1>
+
+        <div class="btn-container">
+
+            <button id="finalYes" class="yes-btn" onclick="celebrate()">Yes Nishu! 🥰</button>
+
+            <button id="noBtn3" class="no-btn" onmouseover="moveButton('noBtn3'); growYes()">Go to Hell! 💀</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="stepFinal" class="container hidden">
+
+        <img src="my-love.JPG" class="final-photo" alt="Our Memory">
+
+        <h1 style="font-size: 1.8rem; margin-top: 10px;">Stay as my पसंदीदा Aurat forever ♾️💛</h1>
+
+        <p class="tagline">Manam kala kaalam ila chilaka gorinka la kalisi undaam.. Please ye Thalli! ✨</p>
+
+    </div>
+
+
+
+    <script>
+
+        let yesSize = 1;
+
+
+
+        function nextStep(step) {
+
+            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+
+            document.getElementById('step' + step).classList.remove('hidden');
+
+        }
+
+
+
+        function moveButton(id) {
+
+            const btn = document.getElementById(id);
+
+            // Safe boundaries: screen width/height minus button size minus a margin
+
+            const maxX = window.innerWidth - btn.offsetWidth - 20;
+
+            const maxY = window.innerHeight - btn.offsetHeight - 20;
+
+            
+
+            // Generate random position within safe bounds
+
+            const x = Math.max(10, Math.random() * maxX);
+
+            const y = Math.max(10, Math.random() * maxY);
+
+            
+
+            btn.style.position = 'fixed';
+
+            btn.style.left = x + 'px';
+
+            btn.style.top = y + 'px';
+
+        }
+
+
+
+        function growYes() {
+
+            yesSize += 0.45;
+
+            const yesBtn = document.getElementById('finalYes');
+
+            yesBtn.style.transform = `scale(${yesSize})`;
+
+        }
+
+
+
+        function celebrate() {
+
+            nextStep('Final');
+
+            for(let i=0; i<70; i++) {
+
+                createConfetti();
+
+            }
+
+        }
+
+
+
+        function createConfetti() {
+
+            const confetti = document.createElement('div');
+
+            confetti.innerText = Math.random() > 0.5 ? "💛" : "🌼";
+
+            confetti.style.position = 'fixed';
+
+            confetti.style.left = Math.random() * 100 + 'vw';
+
+            confetti.style.top = '-20px';
+
+            confetti.style.fontSize = Math.random() * 25 + 15 + 'px';
+
+            confetti.style.zIndex = 1000;
+
+            confetti.style.transition = `transform 3s linear, top 3s linear`;
+
+            document.body.appendChild(confetti);
+
+
+
+            setTimeout(() => {
+
+                confetti.style.top = '110vh';
+
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+            }, 10);
+
+
+
+            setTimeout(() => { confetti.remove(); }, 3000);
+
+        }
+
+    </script>
+
 </body>
+
 </html>
+
+
+just remove empty spaces
