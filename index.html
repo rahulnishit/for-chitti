@@ -139,6 +139,16 @@
             color: #ff4d6d;
             box-shadow: 0 0 15px rgba(255, 77, 109, 0.2);
         }
+        .no-btn {
+            /* Ensure the transition doesn't interfere with the initial jump */
+            transition: transform 0.2s ease;
+            will-change: top, left; /* Optimizes performance */
+        }
+
+        /* Prevents the button from being hidden if it moves behind the card */
+        #noBtn1, #noBtn2, #noBtn3 {
+            z-index: 9999 !important;
+        }
 
         .hidden { display: none; }
 
@@ -192,7 +202,7 @@
         <h1>Hello Chitti... Are you still mad at me? 🥺</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(2)">No, not anymore ❤️</button>
-            <button id="noBtn1" class="no-btn" onmouseover="moveButton('noBtn1')">Yes! 😤</button>
+            <button id="noBtn1" class="no-btn" onmouseenter="moveButton('noBtn1')">Yes! 😤</button>
         </div>
     </div>
 
@@ -213,7 +223,7 @@
         <h1>Will you forgive me pleaseeeeeeeeeee? 🥺💛</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(5)">Ok baba! ❤️</button>
-            <button id="noBtn2" class="no-btn" onmouseover="moveButton('noBtn2')">Get Lost!!! 😡</button>
+            <button id="noBtn2" class="no-btn" onmouseenter="moveButton('noBtn2')">Get Lost!!! 😡</button>
         </div>
     </div>
 
@@ -228,7 +238,7 @@
         <h1>Will you be my Valentine? 💛🌼</h1>
         <div class="btn-container">
             <button id="finalYes" class="yes-btn" onclick="celebrate()">Yes Nishu! 🥰</button>
-            <button id="noBtn3" class="no-btn" onmouseover="moveButton('noBtn3'); growYes()">Go to Hell! 💀</button>
+            <button id="noBtn3" class="no-btn" onmouseenter="moveButton('noBtn3'); growYes()">Go to Hell! 💀</button>
         </div>
     </div>
 
