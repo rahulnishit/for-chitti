@@ -25,7 +25,6 @@
             text-align: center;
         }
 
-        /* Floating Background Hearts */
         .bg-heart {
             position: absolute;
             color: rgba(255, 222, 89, 0.4);
@@ -71,12 +70,11 @@
 
         .gif { width: 200px; border-radius: 20px; margin-bottom: 20px; }
 
-        /* Special Styling for Final Photo */
         .final-photo {
-            width: 280px !important; /* Made bigger */
+            width: 280px !important;
             height: auto;
             border: 12px solid white;
-            border-bottom: 40px solid white; /* Polaroid look */
+            border-bottom: 40px solid white;
             border-radius: 4px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             transform: rotate(-2deg);
@@ -152,19 +150,19 @@
     </div>
 
     <div id="step2" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v6aOebdclIodY7MuvQ/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHVndW1pZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1fXcl6p932AsO40rY3/giphy.gif" class="gif">
         <h1>I've been thinking about this for a while... 💭</h1>
         <button class="yes-btn" onclick="nextStep(3)">Tell me!! What is it? ✨</button>
     </div>
 
     <div id="step3" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L95Z2L7IuYM9SYAb9N/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZudW1pZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26hpKz78YsxML9O7C/giphy.gif" class="gif">
         <h1>First of all... I am very very Sorry for all my mistakes.. 😭🥀</h1>
         <button class="yes-btn" onclick="nextStep(4)">That's ok! Chill! 🤜🤛</button>
     </div>
 
     <div id="step4" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26hpKz78YsxML9O7C/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L95Z2L7IuYM9SYAb9N/giphy.gif" class="gif">
         <h1>Will you forgive me pleaseeeeeeeeeee? 🥺💛</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(5)">Ok baba! ❤️</button>
@@ -173,7 +171,7 @@
     </div>
 
     <div id="step5" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/1fXcl6p932AsO40rY3/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v6aOebdclIodY7MuvQ/giphy.gif" class="gif">
         <h1>Now I wanted to ask you one more thing... 👉👈</h1>
         <button class="yes-btn" onclick="nextStep(6)">Yes! Tell me!! 💛</button>
     </div>
@@ -203,9 +201,13 @@
 
         function moveButton(id) {
             const btn = document.getElementById(id);
-            const padding = 120; 
-            const x = Math.random() * (window.innerWidth - btn.offsetWidth - padding) + (padding / 2);
-            const y = Math.random() * (window.innerHeight - btn.offsetHeight - padding) + (padding / 2);
+            // Safe boundaries: screen width/height minus button size minus a margin
+            const maxX = window.innerWidth - btn.offsetWidth - 20;
+            const maxY = window.innerHeight - btn.offsetHeight - 20;
+            
+            // Generate random position within safe bounds
+            const x = Math.max(10, Math.random() * maxX);
+            const y = Math.max(10, Math.random() * maxY);
             
             btn.style.position = 'fixed';
             btn.style.left = x + 'px';
