@@ -33,6 +33,7 @@
             max-width: 400px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid #ffecf2;
+            position: relative;
         }
 
         h1 { color: #d63384; font-size: 1.5rem; line-height: 1.4; margin-bottom: 20px; }
@@ -45,7 +46,7 @@
             align-items: center;
             gap: 15px;
             margin-top: 25px;
-            min-height: 60px;
+            min-height: 80px; /* Increased to give buttons room */
             position: relative;
         }
 
@@ -60,12 +61,17 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .yes-btn { background-color: #ff4d6d; color: white; z-index: 10; }
-        .no-btn { background-color: #f0f0f0; color: #666; position: absolute; }
+        .yes-btn { background-color: #ff4d6d; color: white; z-index: 10; position: relative; }
+        
+        .no-btn { 
+            background-color: #f0f0f0; 
+            color: #666; 
+            position: relative; /* Changed from absolute to relative for initial view */
+            z-index: 5;
+        }
 
         .hidden { display: none; }
 
-        /* Floating Animation */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -77,7 +83,7 @@
 <body>
 
     <div id="step1" class="container">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v6aOebdclIodY7MuvQ/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/7S9X9P6A_S0AAAAi/bubududu-panda.gif" class="gif">
         <h1>Hello Chitti... Are you still mad at me? 🥺</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(2)">No, not anymore ❤️</button>
@@ -86,19 +92,19 @@
     </div>
 
     <div id="step2" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L95Z2L7IuYM9SYAb9N/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/075X0AgvdxsAAAAi/mocha-bear-hearts.gif" class="gif">
         <h1>I've been thinking about this for a while... 💭</h1>
         <button class="yes-btn" onclick="nextStep(3)">Tell me!! What is it? ✨</button>
     </div>
 
     <div id="step3" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/9T9XGst0Y7AAAAAi/cry-sad.gif" class="gif">
         <h1>First of all... I am very very Sorry for all the mistakes I've done so far.. 😭🥀</h1>
         <button class="yes-btn" onclick="nextStep(4)">That's ok! Chill! 🤜🤛</button>
     </div>
 
     <div id="step4" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26hpKz78YsxML9O7C/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/ZfAnbe_9v8EAAAAi/mochi-mochi-peach-cat-cat.gif" class="gif">
         <h1>Will you forgive me pleaseeeeeeeeeee? 🥺💛</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(5)">Ok baba! ❤️</button>
@@ -107,13 +113,13 @@
     </div>
 
     <div id="step5" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/1fXcl6p932AsO40rY3/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/7A_LqA8lS9wAAAAi/shiba-inu-shy.gif" class="gif">
         <h1>Now I wanted to ask you one more thing... 👉👈</h1>
         <button class="yes-btn" onclick="nextStep(6)">Yes! Tell me!! 💛</button>
     </div>
 
     <div id="step6" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/MDJ9IbxxvDUQM/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/Sn_89689Y80AAAAi/kawaii-yellow-flower.gif" class="gif">
         <h1>Will you be my Valentine? 💛🌼</h1>
         <div class="btn-container">
             <button id="finalYes" class="yes-btn" onclick="celebrate()">Yes Nishu! 🥰</button>
@@ -122,40 +128,39 @@
     </div>
 
     <div id="stepFinal" class="container hidden">
-        <img src="JPG" class="gif" style="width: 250px; height: auto; border: 5px solid #ffde59;" alt="Our Memory">
+        <img src="my-photo.jpg" class="gif" style="width: 250px; height: auto; border: 5px solid #ffde59;" alt="Our Memory" onerror="this.src='https://media.tenor.com/p0S-p_Y8578AAAAi/love-sticker.gif'">
         <h1>Stay as my पसंदीदा Aurat forever ♾️💛</h1>
-        <p class="tagline">(Manam kala kaalam ila chilaka gorinka la kalisi undaam.. Please ye Thalli!✨)</p>
+        <p class="tagline">Manam kala kaalam ila chilaka gorinka la kalisi undaam.. Please ye Thalli!✨</p>
     </div>
 
     <script>
         let yesSize = 1;
 
         function nextStep(step) {
-            // Hide all containers
             document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
-            // Show the specific step
-            document.getElementById('step' + (step === 'Final' ? 'Final' : step)).classList.remove('hidden');
+            document.getElementById('step' + step).classList.remove('hidden');
         }
 
         function moveButton(id) {
             const btn = document.getElementById(id);
+            // Makes the button run away randomly across the screen
             const x = Math.random() * (window.innerWidth - btn.offsetWidth);
             const y = Math.random() * (window.innerHeight - btn.offsetHeight);
             
-            btn.style.position = 'fixed';
+            btn.style.position = 'fixed'; // Now it jumps out of the container
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
         }
 
         function growYes() {
-            yesSize += 0.3;
+            yesSize += 0.4;
             const yesBtn = document.getElementById('finalYes');
             yesBtn.style.transform = `scale(${yesSize})`;
         }
 
         function celebrate() {
             nextStep('Final');
-            for(let i=0; i<50; i++) {
+            for(let i=0; i<40; i++) {
                 createConfetti();
             }
         }
@@ -168,6 +173,7 @@
             confetti.style.top = '-20px';
             confetti.style.fontSize = Math.random() * 20 + 15 + 'px';
             confetti.style.zIndex = 999;
+            confetti.style.pointerEvents = 'none';
             confetti.style.transition = `transform 3s linear, top 3s linear`;
             document.body.appendChild(confetti);
 
