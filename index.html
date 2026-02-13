@@ -9,6 +9,7 @@
             --primary-pink: #fff5f8;
             --accent-yellow: #ffde59;
             --deep-rose: #d63384;
+            --soft-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
         }
 
         body {
@@ -18,27 +19,71 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #ffe0e9 0%, #fff5f8 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle, #fff5f8 0%, #ffe0e9 100%);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             overflow: hidden;
             text-align: center;
         }
 
-        .container {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.15);
-            width: 90%;
-            max-width: 400px;
-            transition: all 0.4s ease;
-            border: 2px solid #ffecf2;
-            position: relative;
+        /* Floating Background Hearts */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 222, 89, 0.4);
+            user-select: none;
+            z-index: -1;
+            animation: floatUp 10s linear infinite;
         }
 
-        h1 { color: #d63384; font-size: 1.5rem; line-height: 1.4; margin-bottom: 20px; }
-        .tagline { color: #888; font-size: 0.8rem; margin-top: 15px; font-style: italic; line-height: 1.4; }
-        .gif { width: 180px; border-radius: 15px; margin-bottom: 20px; }
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 40px;
+            box-shadow: var(--soft-shadow);
+            width: 90%;
+            max-width: 420px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid white;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 { 
+            color: var(--deep-rose); 
+            font-size: 1.6rem; 
+            line-height: 1.4; 
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .tagline { 
+            color: #666; 
+            font-size: 1rem; 
+            margin-top: 20px; 
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .gif { width: 200px; border-radius: 20px; margin-bottom: 20px; }
+
+        /* Special Styling for Final Photo */
+        .final-photo {
+            width: 280px !important; /* Made bigger */
+            height: auto;
+            border: 12px solid white;
+            border-bottom: 40px solid white; /* Polaroid look */
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: rotate(-2deg);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        .final-photo:hover { transform: rotate(0deg) scale(1.05); }
 
         .btn-container {
             display: flex;
@@ -46,46 +91,59 @@
             align-items: center;
             gap: 15px;
             margin-top: 25px;
-            min-height: 100px; /* Space for the growing button */
+            min-height: 120px;
         }
 
         button {
-            padding: 12px 25px;
-            font-size: 1rem;
+            padding: 14px 28px;
+            font-size: 1.1rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.3);
+            transition: all 0.3s ease;
         }
 
         .yes-btn { 
             background-color: #ff4d6d; 
             color: white; 
             z-index: 100;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth growing */
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .no-btn { 
-            background-color: #f0f0f0; 
-            color: #666; 
-            transition: all 0.3s ease; /* Smooth moving */
+            background-color: #eee; 
+            color: #777; 
+            transition: all 0.2s ease;
             z-index: 50;
         }
 
         .hidden { display: none; }
 
-        @keyframes float {
+        @keyframes mainFloat {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
         }
-        .container { animation: float 4s ease-in-out infinite; }
+        .container { animation: mainFloat 5s ease-in-out infinite; }
     </style>
 </head>
 <body>
 
+    <script>
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'bg-heart';
+            heart.innerHTML = '💛';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.body.appendChild(heart);
+        }
+    </script>
+
     <div id="step1" class="container">
-        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHZqZzR5eHh6eHh6eHh6eHh6eHh6eHh6eHh6eHh6eHh6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" class="gif">
         <h1>Hello Chitti... Are you still mad at me? 🥺</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(2)">No, not anymore ❤️</button>
@@ -94,19 +152,19 @@
     </div>
 
     <div id="step2" class="container hidden">
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L95Z2L7IuYM9SYAb9N/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v6aOebdclIodY7MuvQ/giphy.gif" class="gif">
         <h1>I've been thinking about this for a while... 💭</h1>
         <button class="yes-btn" onclick="nextStep(3)">Tell me!! What is it? ✨</button>
     </div>
 
     <div id="step3" class="container hidden">
-        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZudW1pZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26hpKz78YsxML9O7C/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L95Z2L7IuYM9SYAb9N/giphy.gif" class="gif">
         <h1>First of all... I am very very Sorry for all my mistakes.. 😭🥀</h1>
         <button class="yes-btn" onclick="nextStep(4)">That's ok! Chill! 🤜🤛</button>
     </div>
 
     <div id="step4" class="container hidden">
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHVndW1pZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1fXcl6p932AsO40rY3/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26hpKz78YsxML9O7C/giphy.gif" class="gif">
         <h1>Will you forgive me pleaseeeeeeeeeee? 🥺💛</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(5)">Ok baba! ❤️</button>
@@ -115,13 +173,13 @@
     </div>
 
     <div id="step5" class="container hidden">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/MDJ9IbxxvDUQM/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/1fXcl6p932AsO40rY3/giphy.gif" class="gif">
         <h1>Now I wanted to ask you one more thing... 👉👈</h1>
         <button class="yes-btn" onclick="nextStep(6)">Yes! Tell me!! 💛</button>
     </div>
 
     <div id="step6" class="container hidden">
-        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHZqZzR5eHh6eHh6eHh6eHh6eHh6eHh6eHh6eHh6eHh6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/KztT2c4u8mYYUiMKdJ/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif" class="gif">
         <h1>Will you be my Valentine? 💛🌼</h1>
         <div class="btn-container">
             <button id="finalYes" class="yes-btn" onclick="celebrate()">Yes Nishu! 🥰</button>
@@ -130,9 +188,9 @@
     </div>
 
     <div id="stepFinal" class="container hidden">
-        <img src="my-love.JPG" class="gif" style="width: 220px; height: auto; border: 5px solid #ffde59; border-radius: 20px;" alt="Our Memory">
-        <h1>Stay as my पसंदीदा Aurat forever ♾️💛</h1>
-        <p class="tagline">Manam kala kaalam ila chilaka gorinka la kalisi undaam.. Please ye Thalli!✨</p>
+        <img src="my-love.JPG" class="final-photo" alt="Our Memory">
+        <h1 style="font-size: 1.8rem; margin-top: 10px;">Stay as my पसंदीदा Aurat forever ♾️💛</h1>
+        <p class="tagline">Manam kala kaalam ila chilaka gorinka la kalisi undaam.. Please ye Thalli! ✨</p>
     </div>
 
     <script>
@@ -145,10 +203,9 @@
 
         function moveButton(id) {
             const btn = document.getElementById(id);
-            // Limit movement within the viewport
-            const padding = 50;
-            const x = Math.random() * (window.innerWidth - btn.offsetWidth - padding);
-            const y = Math.random() * (window.innerHeight - btn.offsetHeight - padding);
+            const padding = 120; 
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth - padding) + (padding / 2);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight - padding) + (padding / 2);
             
             btn.style.position = 'fixed';
             btn.style.left = x + 'px';
@@ -156,14 +213,14 @@
         }
 
         function growYes() {
-            yesSize += 0.4; // Grows by 40% each hover
+            yesSize += 0.45;
             const yesBtn = document.getElementById('finalYes');
             yesBtn.style.transform = `scale(${yesSize})`;
         }
 
         function celebrate() {
             nextStep('Final');
-            for(let i=0; i<50; i++) {
+            for(let i=0; i<70; i++) {
                 createConfetti();
             }
         }
@@ -174,7 +231,7 @@
             confetti.style.position = 'fixed';
             confetti.style.left = Math.random() * 100 + 'vw';
             confetti.style.top = '-20px';
-            confetti.style.fontSize = Math.random() * 20 + 15 + 'px';
+            confetti.style.fontSize = Math.random() * 25 + 15 + 'px';
             confetti.style.zIndex = 1000;
             confetti.style.transition = `transform 3s linear, top 3s linear`;
             document.body.appendChild(confetti);
