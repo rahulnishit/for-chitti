@@ -93,28 +93,36 @@
         }
 
         button {
-            padding: 14px 28px;
-            font-size: 1.1rem;
+            padding: 16px 32px;
+            font-size: 1rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 700;
-            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .yes-btn { 
-            background-color: #ff4d6d; 
-            color: white; 
-            z-index: 100;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .yes-btn {  
+            background: var(--grad);
+            color: white;  
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
         }
 
-        .no-btn { 
-            background-color: #eee; 
-            color: #777; 
-            transition: all 0.2s ease;
-            z-index: 50;
+        .yes-btn:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 15px 25px rgba(255, 77, 109, 0.4);
+        }
+
+        .no-btn {  
+            background: #f0f0f0;  
+            color: #888;  
+            font-size: 0.9rem;
+        }
+
+        /* Floating Hearts enhancement */
+        .bg-heart {
+            filter: blur(0.5px);
+            opacity: 0.6;
         }
 
         .hidden { display: none; }
