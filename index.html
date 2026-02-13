@@ -251,10 +251,10 @@
     <script>
         let yesSize = 1;
 
-        function nextStep(step) {
-            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
-            document.getElementById('step' + step).classList.remove('hidden');
-        }
+        // function nextStep(step) {
+        //     document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+        //     document.getElementById('step' + step).classList.remove('hidden');
+        // }
 
         /*function moveButton(id) {
             const btn = document.getElementById(id);
@@ -291,7 +291,7 @@
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
             // 5. Smooth movement without sticking
-            btn.style.transition = 'all 0.2s ease-out';
+            btn.style.transition = 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
         }
 
         function growYes() {
@@ -300,16 +300,16 @@
             yesBtn.style.transform = `scale(${yesSize})`;
         }
 
-        function celebrate() {
-            nextStep('Final');
-            // Play song on final page
-            const music = document.getElementById('bgMusic');
-            music.play().catch(e => console.log("Autoplay blocked until user interaction"));
+        // function celebrate() {
+        //     nextStep('Final');
+        //     // Play song on final page
+        //     const music = document.getElementById('bgMusic');
+        //     music.play().catch(e => console.log("Autoplay blocked until user interaction"));
             
-            for(let i=0; i<70; i++) {
-                createConfetti();
-            }
-        }
+        //     for(let i=0; i<70; i++) {
+        //         createConfetti();
+        //     }
+        // }
 
         function celebrate() {
             nextStep('Final');
@@ -319,7 +319,7 @@
             for(let i=0; i<100; i++) {
                 setTimeout(() => {
                     createConfetti();
-                }, i * 200); // Adds an animal every 150ms
+                }, i * 200); // Adds an animal every 200ms
             }
         }
         function createConfetti() {
