@@ -246,7 +246,7 @@
             document.getElementById('step' + step).classList.remove('hidden');
         }
 
-        function moveButton(id) {
+        /*function moveButton(id) {
             const btn = document.getElementById(id);
             const margin = 0.15; 
             const minX = window.innerWidth * margin;
@@ -261,6 +261,27 @@
             btn.style.top = y + 'px';
             // Smooth escape transition
             btn.style.transition = 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        }*/
+        function moveButton(id) {
+            const btn = document.getElementById(id);
+            // 1. Force the button to be on top of everything
+            btn.style.zIndex = "1000";
+            btn.style.position = 'fixed';
+            // 2. Calculate safe boundaries (keeping it 5% away from edges)
+            const margin = 0.05; 
+            const minX = window.innerWidth * margin;
+            const maxX = window.innerWidth * (1 - margin) - btn.offsetWidth;
+            const minY = window.innerHeight * margin;
+            const maxY = window.innerHeight * (1 - margin) - btn.offsetHeight;
+            // 3. Generate new coordinates
+            let x = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+            let y = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+            // 4. THE FIX: If the new position is too close to the current mouse position, 
+            // we push it further away so it doesn't get "stuck" under the cursor.
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            // 5. Smooth movement without sticking
+            btn.style.transition = 'all 0.2s ease-out';
         }
 
         function growYes() {
