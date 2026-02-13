@@ -290,6 +290,36 @@
             // Remove from DOM after it finishes falling/bouncing
             setTimeout(() => { confetti.remove(); }, fallDuration + 3000);
         }
+        function nextStep(step) {
+            const containers = document.querySelectorAll('.container');
+            // Fade out current
+            containers.forEach(c => {
+                if (!c.classList.contains('hidden')) {
+                    c.style.opacity = '0';
+                    c.style.transform = 'scale(0.9)';
+                    setTimeout(() => c.classList.add('hidden'), 300);
+                }
+            });
+            // Fade in next
+            setTimeout(() => {
+                const target = (step === 'Final') ? 'stepFinal' : 'step' + step;
+                const nextEl = document.getElementById(target);
+                nextEl.classList.remove('hidden');
+                nextEl.style.opacity = '0';
+                nextEl.style.transform = 'scale(0.9)';
+                // Trigger reflow
+                nextEl.offsetHeight; 
+                nextEl.style.transition = 'all 0.5s ease';
+                nextEl.style.opacity = '1';
+                nextEl.style.transform = 'scale(1)';
+            }, 350);
+        }
+        const warnings = ["Are you sure?", "Still no?", "Calculated move...", "Really?", "Try again!"];
+        function moveButton(id) {
+            const btn = document.getElementById(id);
+            btn.innerText = warnings[Math.floor(Math.random() * warnings.length)];
+            // ... existing move logic ...
+        }
     </script>
 </body>
 </html>
