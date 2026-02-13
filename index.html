@@ -19,7 +19,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: radial-gradient(circle, #fff5f8 0%, #ffe0e9 100%);
+            background: linear-gradient(-45deg, #fff5f8, #ffe0e9, #ffecb3, #fff5f8);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             overflow: hidden;
             text-align: center;
@@ -104,10 +106,26 @@
         }
 
         .yes-btn { 
-            background-color: #ff4d6d; 
-            color: white; 
-            z-index: 100;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(45deg, #ff4d6d, #ff758c);
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .yes-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .yes-btn:hover::after {
+            left: 120%;
         }
 
         .no-btn { 
@@ -123,7 +141,7 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
         }
-        .container { animation: mainFloat 5s ease-in-out infinite; }
+        .container { border: 1px solid rgba(255, 255, 255, 0.6); }
 
         @keyframes dance {
             0%, 100% { transform: translateX(0) rotate(0deg); }
@@ -134,6 +152,11 @@
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-30px);}
             60% {transform: translateY(-15px);}
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
@@ -312,6 +335,20 @@
                 nextEl.style.transition = 'all 0.5s ease';
                 nextEl.style.opacity = '1';
                 nextEl.style.transform = 'scale(1)';
+                const h1 = nextEl.querySelector('h1');
+                if (h1 && step !== 'Final') { // Skip typing for the last page to keep photo focus
+                    const text = h1.innerText;
+                    h1.innerText = '';
+                    let i = 0;
+                    const type = () => {
+                        if (i < text.length) {
+                            h1.innerText += text.charAt(i);
+                            i++;
+                            setTimeout(type, 50);
+                        }
+                    };
+                    type();
+                }
             }, 350);
         }
         document.addEventListener('click', (e) => {
@@ -331,6 +368,22 @@
                 }, 10);
                 setTimeout(() => spark.remove(), 800);
             }
+            const clickHeart = document.createElement('div');
+            clickHeart.innerHTML = "💛";
+            clickHeart.style.position = 'fixed';
+            clickHeart.style.left = e.clientX + 'px';
+            clickHeart.style.top = e.clientY + 'px';
+            clickHeart.style.fontSize = '24px';
+            clickHeart.style.pointerEvents = 'none';
+            clickHeart.style.zIndex = "2000";
+            clickHeart.style.transition = "all 1.5s ease-out";
+            document.body.appendChild(clickHeart);
+
+            setTimeout(() => {
+                clickHeart.style.transform = "translateY(-100px) scale(2)";
+                    clickHeart.style.opacity = "0";
+            }, 10);
+            setTimeout(() => clickHeart.remove(), 1500);
         });
 
     </script>
