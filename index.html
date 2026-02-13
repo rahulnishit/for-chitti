@@ -243,15 +243,17 @@
 
         function moveButton(id) {
             const btn = document.getElementById(id);
-            const maxX = window.innerWidth - btn.offsetWidth - 20;
-            const maxY = window.innerHeight - btn.offsetHeight - 20;
-            
-            const x = Math.max(10, Math.random() * maxX);
-            const y = Math.max(10, Math.random() * maxY);
-            
+            // Define a "Safe Zone" (Avoiding the very edges of the screen)
+            const padding = 100; // Keep it 100px away from the edges
+            const maxX = window.innerWidth - btn.offsetWidth - padding;
+            const maxY = window.innerHeight - btn.offsetHeight - padding;
+            // Generate random coordinates but start from the padding offset
+            const x = Math.floor(Math.random() * (maxX - padding)) + padding;
+            const y = Math.floor(Math.random() * (maxY - padding)) + padding;
             btn.style.position = 'fixed';
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
+            btn.style.transition = 'all 0.3s ease-out'; // Adds a smooth "glide" when it moves
         }
 
         function growYes() {
@@ -337,16 +339,18 @@
                 nextEl.style.transform = 'scale(1)';
                 const h1 = nextEl.querySelector('h1');
                 if (h1 && step !== 'Final') { // Skip typing for the last page to keep photo focus
-                    const text = h1.innerText;
-                    h1.innerText = '';
+                    const text = h1.textContent; // Using textContent to preserve spaces
+                    h1.textContent = '';
                     let i = 0;
-                    const type = () => {
+                    // Clear any existing intervals if needed
+                    const typingInterval = setInterval(() => {
                         if (i < text.length) {
-                            h1.innerText += text.charAt(i);
+                            h1.textContent += text.charAt(i);
                             i++;
-                            setTimeout(type, 50);
+                        } else {
+                            clearInterval(typingInterval);
                         }
-                    };
+                    }, 60);
                     type();
                 }
             }, 350);
