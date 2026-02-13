@@ -129,6 +129,7 @@
 <body>
 
     <script>
+        // Generate background hearts
         for (let i = 0; i < 15; i++) {
             let heart = document.createElement('div');
             heart.className = 'bg-heart';
@@ -141,7 +142,7 @@
     </script>
 
     <div id="step1" class="container">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/z8p_YvAbe_IAAAAi/mochi-cat.gif" class="gif">
         <h1>Hello Chitti... Are you still mad at me? 🥺</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(2)">No, not anymore ❤️</button>
@@ -150,19 +151,19 @@
     </div>
 
     <div id="step2" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHVndW1pZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1fXcl6p932AsO40rY3/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/978f8vEof_oAAAAi/mochi-mochi-peach-cat-cat.gif" class="gif">
         <h1>I've been thinking about this for a while... 💭</h1>
         <button class="yes-btn" onclick="nextStep(3)">Tell me!! What is it? ✨</button>
     </div>
 
     <div id="step3" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZudW1pZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZzB4bmZpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26hpKz78YsxML9O7C/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/XskS99Y6L6wAAAAi/peach-goma.gif" class="gif">
         <h1>First of all... I am very very Sorry for all my mistakes.. 😭🥀</h1>
         <button class="yes-btn" onclick="nextStep(4)">That's ok! Chill! 🤜🤛</button>
     </div>
 
     <div id="step4" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L95Z2L7IuYM9SYAb9N/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/Y36R_Xp5t64AAAAi/mochi-mochi-peach-cat-cat.gif" class="gif">
         <h1>Will you forgive me pleaseeeeeeeeeee? 🥺💛</h1>
         <div class="btn-container">
             <button class="yes-btn" onclick="nextStep(5)">Ok baba! ❤️</button>
@@ -171,13 +172,13 @@
     </div>
 
     <div id="step5" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5hMmZ4Z285eG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5ueG5uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v6aOebdclIodY7MuvQ/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/9v8SIsj8XmIAAAAi/mochi-peach-cat-peach-cat.gif" class="gif">
         <h1>Now I wanted to ask you one more thing... 👉👈</h1>
         <button class="yes-btn" onclick="nextStep(6)">Yes! Tell me!! 💛</button>
     </div>
 
     <div id="step6" class="container hidden">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZ3pueG5tZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif" class="gif">
+        <img src="https://media.tenor.com/u_f6kQh6p_0AAAAi/mochi-mochi-peach-cat-peach-and-goma.gif" class="gif">
         <h1>Will you be my Valentine? 💛🌼</h1>
         <div class="btn-container">
             <button id="finalYes" class="yes-btn" onclick="celebrate()">Yes Nishu! 🥰</button>
@@ -186,7 +187,7 @@
     </div>
 
     <div id="stepFinal" class="container hidden">
-        <img src="my-love.JPG" class="final-photo" alt="Our Memory">
+        <img src="my-love.JPG" class="final-photo" alt="Our Memory" onerror="this.src='https://media.tenor.com/s6n5Yq2P-mIAAAAi/love-cat.gif'">
         <h1 style="font-size: 1.8rem; margin-top: 10px;">Stay as my पसंदीदा Aurat forever ♾️💛</h1>
         <p class="tagline">Manam kala kaalam ila chilaka gorinka la kalisi undaam.. Please ye Thalli! ✨</p>
     </div>
@@ -201,13 +202,12 @@
 
         function moveButton(id) {
             const btn = document.getElementById(id);
-            // Safe boundaries: screen width/height minus button size minus a margin
-            const maxX = window.innerWidth - btn.offsetWidth - 20;
-            const maxY = window.innerHeight - btn.offsetHeight - 20;
+            // Dynamic logic to keep button inside viewport without vanishing
+            const maxX = window.innerWidth - btn.offsetWidth - 30;
+            const maxY = window.innerHeight - btn.offsetHeight - 30;
             
-            // Generate random position within safe bounds
-            const x = Math.max(10, Math.random() * maxX);
-            const y = Math.max(10, Math.random() * maxY);
+            const x = Math.max(15, Math.random() * maxX);
+            const y = Math.max(15, Math.random() * maxY);
             
             btn.style.position = 'fixed';
             btn.style.left = x + 'px';
