@@ -314,12 +314,25 @@
                 nextEl.style.transform = 'scale(1)';
             }, 350);
         }
-        const warnings = ["Are you sure?", "Still no?", "Calculated move...", "Really?", "Try again!"];
-        function moveButton(id) {
-            const btn = document.getElementById(id);
-            btn.innerText = warnings[Math.floor(Math.random() * warnings.length)];
-            // ... existing move logic ...
-        }
+        document.addEventListener('click', (e) => {
+            for(let i=0; i<5; i++) {
+                const spark = document.createElement('div');
+                spark.innerHTML = "✨";
+                spark.style.position = 'fixed';
+                spark.style.left = e.clientX + 'px';
+                spark.style.top = e.clientY + 'px';
+                spark.style.pointerEvents = 'none';
+                spark.style.fontSize = '20px';
+                spark.style.transition = 'all 0.8s ease-out';
+                document.body.appendChild(spark);
+                setTimeout(() => {
+                    spark.style.transform = `translate(${(Math.random()-0.5)*100}px, ${(Math.random()-0.5)*100}px) rotate(360deg)`;
+                    spark.style.opacity = '0';
+                }, 10);
+                setTimeout(() => spark.remove(), 800);
+            }
+        });
+
     </script>
 </body>
 </html>
